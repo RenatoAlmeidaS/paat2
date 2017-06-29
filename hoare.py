@@ -1,8 +1,8 @@
-def quicksort_lomuto(vetor, lo, hi):
+def quicksort_hoare(vetor, lo, hi):
     if lo < hi:
-        p = partition_lomuto(vetor, lo, hi)
-        quicksort_lomuto(vetor, lo, p - 1)
-        quicksort_lomuto(vetor, p + 1, hi)
+        p = partition_hoare(vetor, lo, hi)
+        quicksort_hoare(vetor, lo, p - 1)
+        quicksort_hoare(vetor, p + 1, hi)
 def partition_hoare(vetor, lo, hi) :
     
     pivot = vetor[lo]
