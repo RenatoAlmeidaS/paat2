@@ -1,5 +1,6 @@
 import sys
 import resource
+import random
 resource.setrlimit(resource.RLIMIT_STACK, [0x10000000, resource.RLIM_INFINITY])
 sys.setrecursionlimit(0x100000)
 
@@ -21,8 +22,9 @@ def partition_lomuto(vetor, lo, hi):
     return i
 
 
-l = list(range(300000))
-
-quicksort_lomuto(l, 0, 299999)
+l = list(range(200000))
+random.shuffle(l)
+print (l)
+quicksort_lomuto(l, 0, 199999)
 
 print(l)

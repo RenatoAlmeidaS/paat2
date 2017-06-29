@@ -31,7 +31,7 @@ def quicksort_hoare(vetor, lo, hi):
         quicksort_hoare(vetor, p + 1, hi)
 def partition_hoare(vetor, lo, hi) :
     
-    pivot = vetor[lo]
+    pivot = vetor[int((lo+hi)/2)]
     i = lo
     j = hi
 
