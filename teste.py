@@ -3,9 +3,6 @@ import time
 import sys
 import resource
 
-resource.setrlimit(resource.RLIMIT_STACK, [0x10000000, resource.RLIM_INFINITY])
-sys.setrecursionlimit(0x100000)
-
 def quicksort_lomuto(vetor, lo, hi):
     if lo < hi:
         p = partition_lomuto(vetor, lo, hi)
@@ -61,7 +58,11 @@ def tempo(func, vetor, boolim):
 			random.shuffle(vetor)
 			print("gerou aleatorio")
 		inicial = time.time()
+		resource.setrlimit(resource.RLIMIT_STACK, [0x10000000, resource.RLIM_INFINITY])
+		sys.setrecursionlimit(0x100000)
 		func(list(vetor), 0, len(vetor)-1)
+		resource.setrlimit(resource.RLIMIT_STACK, [1500, resource.RLIM_INFINITY])
+		sys.setrecursionlimit(1500)
 		final = time.time()
 		retorno += ((final - inicial)/3)
 	return retorno

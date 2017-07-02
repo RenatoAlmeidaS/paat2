@@ -28,8 +28,9 @@ function partition_hoare(vetor, lo, hi)
 
 end
 
-l[]
+c = open('a.txt')
+s = readstring(f)
 
-quicksort_hoare(l, 0, 199999)
+print(s)
 
-print(l)
+close(c)
