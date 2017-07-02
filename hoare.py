@@ -1,5 +1,6 @@
 import sys
 import resource
+import random
 resource.setrlimit(resource.RLIMIT_STACK, [0x10000000, resource.RLIM_INFINITY])
 sys.setrecursionlimit(0x100000)
 
@@ -11,8 +12,9 @@ def quicksort_hoare(vetor, lo, hi):
 def partition_hoare(vetor, lo, hi) :
     
     pivot = vetor[lo]
-    i = lo - 1
-    j = hi + 1
+
+    i = lo
+    j = hi
 
     while True:
 
@@ -20,9 +22,15 @@ def partition_hoare(vetor, lo, hi) :
             i += 1
 
         while vetor[j] > pivot :
-            j+= 1
+            j-= 1
         
         if i >= j :
             return j
 
         vetor[i], vetor[j] = vetor[j], vetor[i]
+
+vet = list(range(5))
+random.shuffle(vet)
+print(vet)
+quicksort_hoare(vet, 0, 4)
+print(vet)

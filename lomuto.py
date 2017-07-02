@@ -1,5 +1,7 @@
 import sys
 import resource
+import time
+
 resource.setrlimit(resource.RLIMIT_STACK, [0x10000000, resource.RLIM_INFINITY])
 sys.setrecursionlimit(0x100000)
 
@@ -9,6 +11,7 @@ def quicksort_lomuto(vetor, lo, hi):
         quicksort_lomuto(vetor, lo, p - 1)
         quicksort_lomuto(vetor, p + 1, hi)
 def partition_lomuto(vetor, lo, hi):
+    
     pivot = vetor[hi]
     i = lo - 1
     j = lo
@@ -20,9 +23,11 @@ def partition_lomuto(vetor, lo, hi):
         j += 1
     return i
 
-
 l = list(range(300000))
 
-quicksort_lomuto(l, 0, 299999)
 
-print(l)
+inicial = time.time()
+quicksort_lomuto(l, 0, 299999)
+final = time.time()
+
+print(final - inicial)
