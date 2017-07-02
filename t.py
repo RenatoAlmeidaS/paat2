@@ -2,7 +2,6 @@ import random
 
 
 arq = open("a.txt","w")
-arq.write
 
 tamanho = [100, 500, 1000, 5000, 30000, 80000, 100000, 150000, 200000]
 i = 0
