@@ -3,9 +3,6 @@ import sys
 import time
 import resource
 
-resource.setrlimit(resource.RLIMIT_STACK, [0x10000000, resource.RLIM_INFINITY])
-sys.setrecursionlimit(0x100000)
-
 arq = open("tempo lomuto.txt","w")
 
 
@@ -16,6 +13,7 @@ def quicksort_lomuto(vetor, lo, hi):
         quicksort_lomuto(vetor, p + 1, hi)
 def partition_lomuto(vetor, lo, hi):
     
+    vetor[int((lo+hi)/2)], vetor[hi] = vetor[hi], vetor[int((lo+hi)/2)]
     pivot = vetor[hi]
     i = lo - 1
     j = lo
