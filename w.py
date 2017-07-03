@@ -16,7 +16,7 @@ def quicksort_lomuto(vetor, lo, hi):
         quicksort_lomuto(vetor, p + 1, hi)
 def partition_lomuto(vetor, lo, hi):
     
-    pivot = vetor[int((lo+hi)/2)]
+    pivot = vetor[hi]
     i = lo - 1
     j = lo
     while(j <= hi):
